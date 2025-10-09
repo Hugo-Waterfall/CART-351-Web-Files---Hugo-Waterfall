@@ -63,7 +63,7 @@ print ("Choose your city…")
 
 #The user gets to choose which city they want to 'play' as in the game, each with different AQIs depending on the users preference
 #We place these get requests here so that we don't frontload the program with too many requests
-#Since we want to display information from all three of these cities, they have to be requested at the same time, before the if statement
+#Since we want to display information from all three of these cities, they have to be requested at the same time, before the if-statement
 saoPauloResponse = requests.get(url, params={"token": token, "keyword": "sao paulo"})
 bangkokResponse = requests.get(url, params={"token": token, "keyword": "bangkok"})
 tashkentResponse = requests.get(url, params={"token": token, "keyword": "tashkent"})
@@ -99,14 +99,14 @@ print ()
 print ("_________________________")
 print (Style.RESET_ALL)
 
-#This get request is for a character introduce a little later in the story. Again, these are sprinkled throughout so that the program does not stall for too long
+#This get request is for a character introduced a little later in the story. Again, these are sprinkled throughout so that the program does not stall for too long
 rotterdamResponse = requests.get(url, params={"token": token, "keyword": "rotterdam"})
 rotterdamResults = rotterdamResponse.json()
 rotterdamResponseData = rotterdamResults['data']
 rotterdamUID = rotterdamResponseData[2]['uid']
 rotterdamAQI = int(rotterdamResponseData[2]['aqi']) #AQI is specifically cast to an int because of a comparison check later on
 
-#If statements: depending on the users choice, their name and AQI will be set and used throughout
+#If-statements: depending on the users choice, their name and AQI will be set and used throughout
 #If an invalid choice is made, exit the program
 if (playerCityInput == "1"):
     playerCity = "São Paulo"
@@ -134,6 +134,7 @@ print ("???: “STOP CRIMINALS!”")
 print ()
 print ("YOU: “Whoa, whoa, we didn’t do anything!”")
 print ()
+#The characters will now use the variable playerCity to refer to the player
 print ("DELHI: “It’s okay,", playerCity, ", he must be talking about my pal Jeremy,” the wrestler whispers to you.")
 print ()
 print ("DELHI: “YOU MUST BE TALKING ABOUT JEREMY! DO YOU KNOW WHERE HE IS?”")
@@ -163,7 +164,7 @@ print (Style.RESET_ALL)
 
 playerPurpose = 0
 
-#These if statements control the response from the detective and the decision will be stored in a variable and referenced later
+#These if-statements control the response from the detective and the decision will be stored in a variable and referenced later
 if (playerPurposeInput == "1"):
     playerPurpose = 1
     print("???: There's nothing like a filthy cup of H20 to start the day. Alright, kid, you get a pass this time.")
@@ -411,7 +412,7 @@ if (strangerInteractionOneInput == "1"):
         print ("Type as much as you want to try and persuade your companions:")
         print ()
         #As there would be no way to interpret whatever the user types, their response will be immediately discarded
-        #This input is meant to act as a joke because no matter what the villain will respond the same way
+        #This input is meant to act as a joke because no matter what, the villain will respond the same way
         blankInput = input("> ")   
         print ()
         print ("_________________________")
