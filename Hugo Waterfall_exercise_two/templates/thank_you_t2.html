@@ -1,0 +1,43 @@
+
+<!-- Here, I inherit the template from base.html -->
+{% extends "base.html" %}
+
+<!-- This is where I write the meat of the html page in the space designated by base.html -->
+{% block content %}
+   
+    <style>
+
+    h2 {
+    font-family: Papyrus, sans-serif;
+    }
+
+    </style>
+
+    <h3>________________________________________________</h3>
+    <section>
+        <!-- HTML Content -->
+        <h1>Thank you, VALUED CUSTOMER (Or should I say... VICTIM!)</h1><br>
+        <p>
+            <!-- STEP 3.6 -->
+            <!-- Using the string variables I passed in exercise-two.py -->
+            <b><u>Inputted data:</u></b><br><br>
+            {{returnString}}<br><br>
+            {{returnStringAlt}}<br><br>
+            {{returnStringAlt2}}<br><br>
+
+        </p>
+
+
+            <h2><b>AS YOU CAN SEE, WE HAVE STOLEN YOUR DATA FROM THIS WEBSITE.<br> 
+            YOUR INFORMATION IS NOW PROPERTY OF THE <i>"SWEETS THEIVES OF ILLINOIS".</i></b><br>
+            <b>FOR THE REST OF ALL TIME, YOU WILL BE SERVED ONLY {{lfav_flavor.upper()}} WHEN YOU VISIT THIS RESTARAUNT!</b><br>
+            <b>ADDITIONALLY, YOUR DISCOUNT IS HEREBY OURS.</b><br>
+            <b>MWAHAHAHAHHAHAH!!!</b><br>
+
+            </h2>
+
+
+
+
+    </section>
+{% endblock %}

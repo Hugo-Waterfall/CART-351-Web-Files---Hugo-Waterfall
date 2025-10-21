@@ -1,0 +1,71 @@
+
+<!-- STEP 2.2 -->
+<!-- Here, I inherit the template from base.html -->
+{% extends "base.html" %}
+
+<!-- This is where I write the meat of the html page in the space designated by base.html -->
+{% block content %}
+   
+     <h3>Welcome to........</h3>
+    <section>
+        <!-- STEP 2.4 -->
+        <!-- HTML Content -->
+        <h1><u>Hugo's Donut Shop</u></h1><br>
+        <!-- Using the topic variable I passed in exercise-two.py -->
+        <p>On this page, we will be discussing our menu - which, of course, consists mainly of {{the_topic}}!<br><br><br><br>
+
+        <!-- Using url_for() for the images -->
+        <img src = {{url_for('static' , filename ='images/'+donut_pink_path)}} width = 25%>
+        
+        <br><br><br><b>PLEASE NOTE: WE ARE RUNNING LOW ON DONUTS</b><br>
+        <b><pre>CURRENT DONUT COUNT: ({{number_of_donuts}})</pre></b><br><br>
+
+        <h2>We have hundreds of flavors!!</h2> <br>
+        <b>(PLEASE NOTE: ONLY ({{donut_flavor_count}}) FLAVORS ARE AVAILABLE FOR PURCHASE)</b><br><br>
+        
+        <!-- For-loop to loop through the content of the list flavours -->
+        <pre>
+        {% for item in donut_data["flavours"] %}
+        > {{ item }}<br>
+        {% endfor %}
+        </pre>
+
+        <!-- Using url_for() for the images -->
+        <u>Examples of the superior quality of our donuts</u><br><br>
+        <img src = {{url_for('static' , filename ='images/'+donut_a_path)}} width = 10%>
+        <img src = {{url_for('static' , filename ='images/'+donut_b_path)}} width = 10%>
+        <img src = {{url_for('static' , filename ='images/'+donut_c_path)}} width = 10%>
+
+        <h2>We also have hundreds of toppings!!</h2> <br>
+
+        <!-- If-statement which assess whether the term "None" appears in the toppings list. -->
+        <!-- If it does, then the number of toppings displayed should be 1 less than the total number of elements in the list (so we don't include "None" in the count) -->
+        <!-- If it doesn't, then assume each element in the list is a topping -->
+        {% if 'None' in donut_data["toppings"] %}
+        <b>(PLEASE NOTE: ONLY ({{donut_toppings_count-1}}) TOPPINGS ARE AVAILABLE FOR PURCHASE, not including 'None')</b><br><br>
+
+        {% else %}
+        <b>(PLEASE NOTE: ONLY ({{donut_toppings_count}}) TOPPINGS ARE AVAILABLE FOR PURCHASE)</b><br><br>
+
+        {% endif %}
+        
+        <!-- For-loop to loop through the content of the list toppings -->
+        <pre>
+        {% for item in donut_data["toppings"] %}
+        > {{ item }}<br>
+        {% endfor %}
+        </pre>
+
+        <h2>We also serve ice-cream!! Only ({{icecream_flavors_count}}) flavors, though.</h2> <br>
+
+        <!-- For-loop to loop through the content of the list icecream_flavors -->
+        <pre>
+        {% for item in icecream_flavors %}
+        > {{ item }}<br>
+        {% endfor %}
+        </pre>
+
+        </p>
+
+    </section>
+{% endblock %}

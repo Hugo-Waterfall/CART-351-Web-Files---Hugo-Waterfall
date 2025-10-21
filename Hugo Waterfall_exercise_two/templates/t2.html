@@ -1,0 +1,51 @@
+<!-- STEP 3.2 -->
+<!-- Here, I inherit the template from base.html -->
+{% extends "base.html" %}
+
+<!-- This is where I write the meat of the html page in the space designated by base.html -->
+{% block content %}
+   
+     <h3>Welcome to........</h3>
+    <section>
+        <!-- HTML Content -->
+        <h1><u>Hugo's Donut Questionnaire!</u></h1><br>
+        <p>On this page, we will be discussing asking you - our valued customer - some questions!<br><br><br>
+      
+        <!-- STEP 3.3 -->
+        <!-- Defining the form for the survey -->
+        <div class= "formContainer">
+                    
+        <!-- STEP 3.4 (a) -->
+        <!-- Passing data from HTML to the specified function using the thank_you route-->
+        <form id = "donutForm" action = "{{url_for('thank_you_t2')}}">
+        <h3> FILLING OUT THIS SURVEY WILL YIELD DISCOUNTS!!!*</h3>
+        *Discounts will only be valid on a user-specified date<br><br>
+        <fieldset>
+ 
+        <!-- Input boxes and labels -->
+        <p>
+            <label>Favorite donut flavor:</label>
+            <input type="text" size="24" maxlength = "40" name = "fav_flavor" required> 
+        </p><br>
+
+        <p>
+            <label>Least favorite donut flavor:</label>
+            <input type="text" size="24" maxlength = "40" name = "lfav_flavor" required> 
+        </p><br>
+        <p>
+            <label>Select the date you wish to recieve your discount:</label>
+            <input type="date" name="d_date" required>
+        </p><br>
+        <p>
+            <label></label>
+            <input id = "submitInformation" type = "submit" name = "submit" value = "Discount button" id =buttonS />
+        </p>
+        </fieldset>
+
+        </form>
+        </div>
+            
+        </p>
+
+    </section>
+{% endblock %}
