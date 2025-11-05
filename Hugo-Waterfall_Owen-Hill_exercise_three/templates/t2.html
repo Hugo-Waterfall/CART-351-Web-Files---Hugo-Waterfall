@@ -1,0 +1,25 @@
+<!--STEP 2.2-->
+<!-- will be a child of base-->
+{% extends "base.html" %}
+
+{% block scriptBlock%}
+<!--STEP 2.3-->
+<script src = "{{url_for('static',filename='js/jsEx3.js')}}"></script>
+{% endblock scriptBlock%}
+
+{% block content %}
+
+     <h3>** Welcome  **</h3>
+    <section>
+        <!-- stuff goes in here -->
+        <p> Move your mouse around the square! When you generate your favourite colour, just click the mouse!</p><br><br>
+
+        <div id="player"> </div>
+
+                                                <!--the data from the javacript will be inserted into this span once the user clicks their color-->
+        <h4> Your favourite colour (displayed in hue-white-black style) is: <span id="colorOutput"> </span></h4><br>
+
+        <!--displaying the status message from the fetch request in the python code. This data will be inserted in the javascript file-->
+        <h4 id = "statusMessage"></h4>
+    </section>
+{% endblock %}
